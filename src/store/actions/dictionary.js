@@ -10,3 +10,9 @@ export const deleteDictionary = id => ({
   type: actions.DELETING_DICTIONARY,
   id,
 });
+
+export const editDictionary = (id, newName) => ({
+  type: actions.EDITING_DICTIONARY,
+  id,
+  newName
+});

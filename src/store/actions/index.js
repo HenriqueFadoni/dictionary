@@ -1,4 +1,5 @@
 export {
   createDictionary,
-  deleteDictionary
+  deleteDictionary,
+  editDictionary
 } from './dictionary';

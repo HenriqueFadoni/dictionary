@@ -19,7 +19,7 @@ const createDictionary = (state, action) => {
 };
 
 const deleteDictionary = (state, action) => {
-  const newDictionaryList = state.dictionaryList.filter((dictionary, index) => {
+  const newDictionaryList = state.dictionaryList.filter(dictionary => {
     return dictionary.id !== action.id
   });
 
@@ -29,13 +29,31 @@ const deleteDictionary = (state, action) => {
   };
 };
 
+const editDictionary = (state, action) => {
+  const newDictionaryList = state.dictionaryList.map(dictionary => {
+    if (dictionary.id === action.id) {
+      return {
+        ...dictionary,
+        name: action.newName
+      }
+    } else {
+      return
+    }
+  });
 
-const reducer = (state = initialState, action) => {
+  return {
+    ...state,
+    dictionaryList: newDictionaryList
+  };
+};
+
+const dictionary = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CREATING_DICTIONARY: return createDictionary(state, action);
     case actionTypes.DELETING_DICTIONARY: return deleteDictionary(state, action);
+    case actionTypes.EDITING_DICTIONARY: return editDictionary(state, action);
     default: return state;
-  }
-}
+  };
+};
 
-export default reducer;
+export default dictionary;
