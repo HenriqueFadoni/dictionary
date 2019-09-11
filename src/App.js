@@ -1,8 +1,13 @@
 import React from 'react';
 
-function App() {
+import CreateDicForm from './components/CreateDicForm'
+
+const App = () => {
+
+
   return (
     <div className="App">
+      <CreateDicForm />
     </div>
   );
 }
