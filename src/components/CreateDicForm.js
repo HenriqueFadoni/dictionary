@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CreateDicForm = () => (
+const CreateDicForm = props => (
   <div>
-    <form>
-      <input type="text" name="createDictionary" required />
+    <form onSubmit={props.createDictionary}>
+      <input type="text" name="dictionaryName" required />
       <button type="submit">Create Dictionary</button>
     </form>
   </div>
