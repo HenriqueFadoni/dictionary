@@ -6,3 +6,7 @@ export const createDictionary = name => ({
   name,
 });
 
+export const deleteDictionary = id => ({
+  type: actions.DELETING_DICTIONARY,
+  id,
+});

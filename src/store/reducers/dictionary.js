@@ -18,10 +18,22 @@ const createDictionary = (state, action) => {
   };
 };
 
+const deleteDictionary = (state, action) => {
+  const newDictionaryList = state.dictionaryList.filter((dictionary, index) => {
+    return index !== action.id
+  });
+
+  return {
+    ...state,
+    dictionaryList: newDictionaryList
+  };
+};
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CREATING_DICTIONARY: return createDictionary(state, action);
+    case actionTypes.DELETING_DICTIONARY: return deleteDictionary(state, action);
     default: return state;
   }
 }

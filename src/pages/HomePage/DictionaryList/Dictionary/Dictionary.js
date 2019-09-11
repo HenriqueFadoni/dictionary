@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../../store/actions/index';
 
 const Dictionary = props => (
   <div id={props.id}>
@@ -17,4 +19,8 @@ const Dictionary = props => (
   </div>
 );
 
-export default Dictionary;
+const mapDispatchToProps = dispatch => ({
+  deleteDictionary: id => dispatch(actionTypes.deleteDictionary(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Dictionary);
