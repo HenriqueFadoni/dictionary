@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../../../store/actions/index';
 
 const Dictionary = props => (
-  <div id={props.id}>
+  <div>
     <div>
       <h1>{props.name}</h1>
     </div>

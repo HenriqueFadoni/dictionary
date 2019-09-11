@@ -20,7 +20,7 @@ const createDictionary = (state, action) => {
 
 const deleteDictionary = (state, action) => {
   const newDictionaryList = state.dictionaryList.filter((dictionary, index) => {
-    return index !== action.id
+    return dictionary.id !== action.id
   });
 
   return {

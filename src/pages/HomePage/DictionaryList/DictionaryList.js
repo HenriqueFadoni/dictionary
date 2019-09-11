@@ -5,10 +5,10 @@ import Dictionary from './Dictionary/Dictionary';
 const DictionaryList = props => {
   const { dictionaries } = props;
 
-  const list = dictionaries.map((dictionary, index) => (
+  const list = dictionaries.map(dictionary => (
     <Dictionary
-      key={index}
-      id={index}
+      key={dictionary.id}
+      id={dictionary.id}
       name={dictionary.name}
     />
   ));
