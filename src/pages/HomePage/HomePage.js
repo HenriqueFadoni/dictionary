@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-
+import { connect } from 'react-redux';
+import * as actionTypes from '../../store/actions/index';
+ 
 import Form from './Form/Form';
 import DictionaryList from './DictionaryList/DictionaryList';
 
-const HomePage = () => {
+const HomePage = props => {
   const [dictionaries, setDictionaries] = useState([]);
 
   const createDictionary = event => {
@@ -11,13 +13,7 @@ const HomePage = () => {
 
     const name = event.target.dictionaryName.value;
     if (name.trim() !== '') {
-      setDictionaries([
-        ...dictionaries,
-        {
-          name,
-          items: []
-        }
-      ]);
+      props.createDictionary(name)
     }
   }
 
@@ -37,4 +33,8 @@ const HomePage = () => {
   );
 }
 
-export default HomePage;
+const mapDispatchToProps = dispatch => ({
+  createDictionary: name => dispatch(actionTypes.createDictionary(name))
+});
+
+export default connect(null, mapDispatchToProps)(HomePage);

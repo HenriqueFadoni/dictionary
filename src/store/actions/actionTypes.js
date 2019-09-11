@@ -1,0 +1,4 @@
+// ActionTypes for an Entire Dicitonary
+export const CREATING_DICTIONARY = 'CREATING_DICTIONARY';
+export const DELETING_DICTIONARY = 'DELETING_DICTIONARY';
+export const EDITING_DICTIONARY = 'EDITING_DICTIONARY';
