@@ -21,10 +21,18 @@ const App = () => {
     }
   }
 
+  const deleteDictionary = id => {
+    const newDictionaries = dictionaries.filter((dictionary, index) => index !== id);
+    setDictionaries(newDictionaries);
+  }
+
   return (
     <div className="App">
       <CreateDicForm createDictionary={createDictionary} />
-      <DictionaryList dictionaries={dictionaries}/>
+      <DictionaryList 
+        dictionaries={dictionaries}
+        deleteDictionary={deleteDictionary}
+      />
     </div>
   );
 }
