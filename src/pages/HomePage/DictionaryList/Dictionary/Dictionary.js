@@ -8,7 +8,6 @@ import Display from './Display/Display';
 const Dictionary = props => {
   const [isEditing, setIsEditing] = useState(false);
   const { id, name, editDictionary, deleteDictionary } = props
-  let render = null;
 
   // Handling Edit Mode
   const editingToggle = () => setIsEditing(!isEditing);
@@ -24,27 +23,23 @@ const Dictionary = props => {
   }
 
   // Handling What to show to the User
-  if (isEditing) {
-    render = (
-      <Form
-        editSave={editSave}
-        editingToggle={editingToggle}
-      />
-    )
-  } else {
-    render = (
-      <Display
-        id={id}
-        name={name}
-        editingToggle={editingToggle}
-        deleteDictionary={deleteDictionary}
-      />
-    )
-  }
-
   return (
     <div>
-      {render}
+      {
+        isEditing
+          ?
+          <Form
+            editSave={editSave}
+            editingToggle={editingToggle}
+          />
+          :
+          <Display
+            id={id}
+            name={name}
+            editingToggle={editingToggle}
+            deleteDictionary={deleteDictionary}
+          />
+      }
     </div>
   )
 };
