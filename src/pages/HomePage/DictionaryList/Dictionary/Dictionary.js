@@ -19,6 +19,7 @@ const Dictionary = props => {
 
     if (newName.trim() !== '') {
       editDictionary(id, newName);
+      editingToggle();
     }
   }
 

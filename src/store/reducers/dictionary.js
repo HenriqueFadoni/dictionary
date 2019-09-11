@@ -37,7 +37,7 @@ const editDictionary = (state, action) => {
         name: action.newName
       }
     } else {
-      return
+      return dictionary
     }
   });
 
