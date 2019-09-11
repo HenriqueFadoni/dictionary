@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import CreateDicForm from './components/CreateDicForm'
+import CreateDicForm from './components/CreateDicForm';
+import DictionaryList from './components/DictionaryList';
 
 const App = () => {
   const [dictionaries, setDictionaries] = useState([]);
@@ -12,7 +13,10 @@ const App = () => {
     if (name.trim() !== '') {
       setDictionaries([
         ...dictionaries,
-        name
+        { 
+          name,
+          items: []
+        }
       ]);
     }
   }
@@ -20,6 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <CreateDicForm createDictionary={createDictionary} />
+      <DictionaryList dictionaries={dictionaries}/>
     </div>
   );
 }
