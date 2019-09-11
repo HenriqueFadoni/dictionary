@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Dictionary from './Dictionary';
+import Dictionary from './Dictionary/Dictionary';
 
 const DictionaryList = props => {
   const { dictionaries, deleteDictionary } = props;

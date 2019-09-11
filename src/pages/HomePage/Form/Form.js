@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateDicForm = props => (
+const Form = props => (
   <div>
     <form onSubmit={props.createDictionary}>
       <input type="text" name="dictionaryName" required />
@@ -9,4 +9,4 @@ const CreateDicForm = props => (
   </div>
 );
 
-export default CreateDicForm;
+export default Form;
