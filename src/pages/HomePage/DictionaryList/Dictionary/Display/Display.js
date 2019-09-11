@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Display = props => (
   <>
     <div>
-      <h1>{props.name}</h1>
+      <NavLink to={`/dictionary/${props.id}`}>{props.name}</NavLink>
     </div>
     <div>
       <button type="button" onClick={props.editingToggle}>
