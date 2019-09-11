@@ -13,7 +13,7 @@ const App = () => {
     if (name.trim() !== '') {
       setDictionaries([
         ...dictionaries,
-        { 
+        {
           name,
           items: []
         }
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="App">
       <CreateDicForm createDictionary={createDictionary} />
-      <DictionaryList 
+      <DictionaryList
         dictionaries={dictionaries}
         deleteDictionary={deleteDictionary}
       />

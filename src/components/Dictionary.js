@@ -9,12 +9,12 @@ const Dictionary = props => (
       <button type="button">Edit</button>
       <button
         type="button"
-        onClick={() => props.deleteDictionary(props.id)} 
+        onClick={() => props.deleteDictionary(props.id)}
       >
         Delete
       </button>
     </div>
   </div>
-)
+);
 
 export default Dictionary;

@@ -6,10 +6,10 @@ const DictionaryList = props => {
   const { dictionaries, deleteDictionary } = props;
 
   const list = dictionaries.map((dictionary, index) => (
-    <Dictionary 
-      key={index} 
+    <Dictionary
+      key={index}
       id={index}
-      name={dictionary.name} 
+      name={dictionary.name}
       deleteDictionary={deleteDictionary}
     />
   ));
