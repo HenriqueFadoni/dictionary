@@ -6,8 +6,8 @@ const DictionaryList = props => {
   const { dictionaries } = props;
 
   const list = dictionaries.map(dictionary => (
-    <Dictionary
-      key={dictionary.id}
+    <Dictionary 
+      key={dictionary.id} 
       id={dictionary.id}
       name={dictionary.name}
     />

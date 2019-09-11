@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/index';
- 
+
 import Form from './Form/Form';
 import DictionaryList from './DictionaryList/DictionaryList';
 
@@ -18,9 +18,7 @@ const HomePage = props => {
   return (
     <div>
       <Form createDictionary={createNewDictionary} />
-      <DictionaryList
-        dictionaries={props.dictionaryList}
-      />
+      <DictionaryList dictionaries={props.dictionaryList} />
     </div>
   );
 }

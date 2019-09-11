@@ -1,26 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../../store/actions/index';
 
-const Dictionary = props => (
-  <div>
+import Form from './Form/Form';
+import Display from './Display/Display';
+
+const Dictionary = props => {
+  const [isEditing, setIsEditing] = useState(false);
+  const { id, name, editDictionary, deleteDictionary } = props
+  let render = null;
+
+  // Handling Edit Mode
+  const editingToggle = () => setIsEditing(!isEditing);
+
+  const editSave = event => {
+    event.preventDefault()
+    const newName = event.target.editName.value;
+
+    if (newName.trim() !== '') {
+      editDictionary(id, newName);
+    }
+  }
+
+  // Handling What to show to the User
+  if (isEditing) {
+    render = (
+      <Form
+        editSave={editSave}
+        editingToggle={editingToggle}
+      />
+    )
+  } else {
+    render = (
+      <Display
+        id={id}
+        name={name}
+        editingToggle={editingToggle}
+        deleteDictionary={deleteDictionary}
+      />
+    )
+  }
+
+  return (
     <div>
-      <h1>{props.name}</h1>
+      {render}
     </div>
-    <div>
-      <button type="button">Edit</button>
-      <button
-        type="button"
-        onClick={() => props.deleteDictionary(props.id)}
-      >
-        Delete
-      </button>
-    </div>
-  </div>
-);
+  )
+};
 
 const mapDispatchToProps = dispatch => ({
-  deleteDictionary: id => dispatch(actionTypes.deleteDictionary(id)),
+  editDictionary: (id, newName) => dispatch(actionTypes.editDictionary(id, newName)),
+  deleteDictionary: id => dispatch(actionTypes.deleteDictionary(id))
 });
 
 export default connect(null, mapDispatchToProps)(Dictionary);
