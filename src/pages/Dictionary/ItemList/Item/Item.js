@@ -1,21 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../../store/actions/index';
 
-const Item = props => (
-  <div>
-    <div>
-      {props.domain}
-    </div>
-    <div>
-      {props.range}
-    </div>
-    <div>
-      <button>Edit</button>
-      <button onClick={() => props.deleteItem(props.id)}>Delete</button>
-    </div>
-  </div>
-);
+import Form from './Form/Form';
+
+const Item = props => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const editingToggle = () => setIsEditing(!isEditing);
+
+  const editSave = event => {
+    event.preventDefault();
+    props.editItem(
+      props.id,
+      event.target.editDomain.value,
+      event.target.editRange.value
+    );
+  }
+
+  if (isEditing) {
+    return <Form editSave={editSave} editingToggle={editingToggle} />
+  } else {
+    return (
+      <div>
+        <div>
+          {props.domain}
+        </div>
+        <div>
+          {props.range}
+        </div>
+        <div>
+          <button onClick={editingToggle}>Edit</button>
+          <button onClick={() => props.deleteItem(props.id)}>Delete</button>
+        </div>
+      </div>
+    );
+  }
+
+};
 
 const mapDispatchToProps = dispatch => ({
   deleteItem: id => dispatch(actionTypes.deleteItem(id)),

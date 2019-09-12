@@ -9,7 +9,7 @@ import selectedDictionary from './DictionaryReducers/selectedDictionary';
 // Items Reducers
 import createItem from './ItemReducers/createItem'; // Needs to be reviewed after
 import deleteItem from './ItemReducers/deleteItem';
-import editItem from './ItemReducers/editItem;'
+import editItem from './ItemReducers/editItem';
 
 const initialState = {
   dictionaryList: [],

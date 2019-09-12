@@ -17,9 +17,17 @@ const checkValidity = (items, newItem) => {
 }
 
 const editItem = (state, action) => {
-  const error = checkValidity(itemsList, newItem);
+  const itemList = state.selectedDictionary.items;
+  const newItemList = itemList.filter(d => d.id !== action.id)
 
-  const updatedItemList = state.selectedDictionary.items.map(item => {
+  const newItem = { 
+    domain: action.newDomain,
+    range: action.newRange
+  }
+
+  const error = checkValidity(newItemList, newItem);
+
+  const updatedItemList = itemList.map(item => {
     if (item.id === action.id) {
       if (error) {
         return {
@@ -43,7 +51,7 @@ const editItem = (state, action) => {
 
   const newSelectedDictionary = {
     ...state.selectedDictionary,
-    item: updatedItemList
+    items: updatedItemList
   }
 
   return {
