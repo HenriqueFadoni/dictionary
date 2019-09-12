@@ -62,12 +62,40 @@ const selectedDictionary = (state, action) => {
   }
 }
 
+const createItem = (state, action) => {
+  const updateDictionary = {
+    ...state.selectedDictionary,
+    items: [
+      ...state.selectedDictionary.items,
+      {
+        domain: action.domain,
+        range:  action.range
+      }
+    ]
+  }
+
+  const newDicList = state.dictionaryList.map(dic => {
+    if (dic.id === state.selectedDictionary.id) {
+      return updateDictionary
+    } else {
+      return dic
+    }
+  })
+
+  return {
+    ...state,
+    dictionaryList: newDicList,
+    selectedDictionary: updateDictionary
+  }
+}
+
 const dictionary = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CREATING_DICTIONARY: return createDictionary(state, action);
     case actionTypes.DELETING_DICTIONARY: return deleteDictionary(state, action);
     case actionTypes.EDITING_DICTIONARY: return editDictionary(state, action);
     case actionTypes.SELECTED_DICTIONARY: return selectedDictionary(state, action);
+    case actionTypes.CREATE_ITEM: return createItem(state, action);
     default: return state;
   };
 };

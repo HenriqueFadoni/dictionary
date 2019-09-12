@@ -5,3 +5,6 @@ export const EDITING_DICTIONARY = 'EDITING_DICTIONARY';
 
 // Fetch Selected Dictionary
 export const SELECTED_DICTIONARY = 'SELECTED_DICTIONARY';
+
+// Item Actions
+export const CREATE_ITEM = 'CREATE_ITEM';

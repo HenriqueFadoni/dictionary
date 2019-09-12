@@ -2,5 +2,6 @@ export {
   createDictionary,
   deleteDictionary,
   editDictionary,
-  selectDictionary
+  selectDictionary,
+  createItem
 } from './dictionary';
