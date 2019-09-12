@@ -7,7 +7,8 @@ import editDictionary from './DictionaryReducers/editDictionary';
 import selectedDictionary from './DictionaryReducers/selectedDictionary';
 
 // Items Reducers
-import createItem from './ItemReducers/createItem';
+import createItem from './ItemReducers/createItem'; // Needs to be reviewed after
+import deleteItem from './ItemReducers/deleteItem';
 
 const initialState = {
   dictionaryList: [],
@@ -21,6 +22,7 @@ const dictionary = (state = initialState, action) => {
     case actionTypes.EDITING_DICTIONARY: return editDictionary(state, action);
     case actionTypes.SELECTED_DICTIONARY: return selectedDictionary(state, action);
     case actionTypes.CREATE_ITEM: return createItem(state, action);
+    case actionTypes.DELETE_ITEM: return deleteItem(state, action);
     default: return state;
   };
 };

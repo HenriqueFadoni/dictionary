@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../../store/actions/index';
 
 const Item = props => (
   <div>
@@ -10,9 +12,13 @@ const Item = props => (
     </div>
     <div>
       <button>Edit</button>
-      <button>Delete</button>
+      <button onClick={() => props.deleteItem(props.id)}>Delete</button>
     </div>
   </div>
 );
 
-export default Item;
+const mapDispatchToProps = dispatch => ({
+  deleteItem: id => dispatch(actionTypes.deleteItem(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Item);

@@ -19,6 +19,7 @@ const checkValidity = (items, newItem) => {
 const createItem = (state, action) => {
   const itemsList = state.selectedDictionary.items;
   const newItem = {
+    id: action.id,
     domain: action.domain,
     range: action.range
   }
