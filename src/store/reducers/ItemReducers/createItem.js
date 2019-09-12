@@ -1,13 +1,51 @@
+const checkValidity = (items, newItem) => {
+  let error = null;
+
+  items.forEach(item => {
+    if ((item.domain === newItem.domain) && (item.range === newItem.range)) {
+      error = 'duplicants';
+    } else if ((item.domain === newItem.domain) && (item.range !== newItem.range)) {
+      error = 'forks';
+    } else if ((item.range === newItem.domain) && (item.domain === newItem.range)) {
+      error = 'cycles';
+    } else if ((item.range === newItem.domain) && (item.domain !== newItem.range)) {
+      error = 'chains';
+    }
+  });
+
+  return error;
+}
+
 const createItem = (state, action) => {
-  const updateDictionary = {
-    ...state.selectedDictionary,
-    items: [
-      ...state.selectedDictionary.items,
-      {
-        domain: action.domain,
-        range:  action.range
-      }
-    ]
+  const itemsList = state.selectedDictionary.items;
+  const newItem = {
+    domain: action.domain,
+    range: action.range
+  }
+
+  const error = checkValidity(itemsList, newItem);
+
+  let updateDictionary = null;
+  
+  if (error) {
+    updateDictionary = {
+      ...state.selectedDictionary,
+      items: [
+        ...itemsList,
+        {
+          ...newItem,
+          error
+        }
+      ]
+    }
+  } else {
+    updateDictionary = {
+      ...state.selectedDictionary,
+      items: [
+        ...itemsList,
+        newItem
+      ]
+    }
   }
 
   const newDicList = state.dictionaryList.map(dic => {
@@ -16,7 +54,7 @@ const createItem = (state, action) => {
     } else {
       return dic
     }
-  })
+  });
 
   return {
     ...state,
