@@ -7,5 +7,6 @@ export {
 
 export {
   createItem,
-  deleteItem
+  deleteItem,
+  editItem
 } from './item';

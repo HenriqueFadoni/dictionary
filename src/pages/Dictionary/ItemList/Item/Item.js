@@ -19,6 +19,7 @@ const Item = props => (
 
 const mapDispatchToProps = dispatch => ({
   deleteItem: id => dispatch(actionTypes.deleteItem(id)),
+  editItem: (id, domain, range) => dispatch(actionTypes.editItem(id, domain, range))
 });
 
 export default connect(null, mapDispatchToProps)(Item);

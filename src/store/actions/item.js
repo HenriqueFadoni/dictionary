@@ -11,3 +11,10 @@ export const deleteItem = id => ({
   type: actions.DELETE_ITEM,
   id,
 });
+
+export const editItem = (id, newDomain, newRange) => ({
+  type: actions.EDIT_ITEM,
+  id,
+  newDomain,
+  newRange
+});
