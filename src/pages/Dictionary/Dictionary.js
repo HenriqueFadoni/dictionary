@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actionTypes from '../../store/actions/index';
 
 const Dictionary = props => {
-  return (
-    <div>
-      {props.match.params.id}
-      <NavLink to="/">Home</NavLink>
-    </div>
-  );
+  const { match, selectedDictionary, selectDictionary } = props;
+
+  useEffect(() => {
+    console.log(match.params.id)
+    selectDictionary(parseFloat(match.params.id))
+  }, []);
+
+  if (selectedDictionary) {
+    return (
+      <div>
+        <NavLink to="/">Home</NavLink>
+        <div>{selectedDictionary.name}</div>
+      </div>
+    );
+  } else {
+    return null
+  }
 }
 
 const mapStateToProps = state => ({
-  dictionaryList: state.dictionaryList
+  selectedDictionary: state.selectedDictionary
 });
 
 const mapDispatchToProps = dispatch => ({
-  createDictionary: name => dispatch(actionTypes.createDictionary(name)),
+  selectDictionary: id => dispatch(actionTypes.selectDictionary(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dictionary);

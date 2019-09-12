@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  dictionaryList: []
+  dictionaryList: [],
+  selectedDictionary: null,
 }
 
 const createDictionary = (state, action) => {
@@ -47,11 +48,26 @@ const editDictionary = (state, action) => {
   };
 };
 
+const selectedDictionary = (state, action) => {
+  let selected = null;
+  state.dictionaryList.forEach(dic => {
+    if (dic.id === action.id) {
+      selected = dic
+    }
+  });
+
+  return {
+    ...state,
+    selectedDictionary: selected
+  }
+}
+
 const dictionary = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CREATING_DICTIONARY: return createDictionary(state, action);
     case actionTypes.DELETING_DICTIONARY: return deleteDictionary(state, action);
     case actionTypes.EDITING_DICTIONARY: return editDictionary(state, action);
+    case actionTypes.SELECTED_DICTIONARY: return selectedDictionary(state, action);
     default: return state;
   };
 };

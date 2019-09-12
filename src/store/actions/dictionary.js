@@ -16,3 +16,8 @@ export const editDictionary = (id, newName) => ({
   id,
   newName
 });
+
+export const selectDictionary = id => ({
+  type: actions.SELECTED_DICTIONARY,
+  id,
+});
