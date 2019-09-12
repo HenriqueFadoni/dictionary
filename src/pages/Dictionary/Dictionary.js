@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as actionTypes from '../../store/actions/index';
 
+import ItemList from './ItemList/ItemList';
+
 const Dictionary = props => {
   const { match, selectedDictionary, selectDictionary } = props;
 
@@ -16,6 +18,7 @@ const Dictionary = props => {
       <div>
         <NavLink to="/">Home</NavLink>
         <div>{selectedDictionary.name}</div>
+        <ItemList list={selectedDictionary.items}/>
       </div>
     );
   } else {
