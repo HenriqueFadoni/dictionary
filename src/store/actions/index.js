@@ -2,7 +2,10 @@ export {
   createDictionary,
   deleteDictionary,
   editDictionary,
-  selectDictionary,
+  selectDictionary
+} from './dictionary';
+
+export {
   createItem,
   deleteItem
-} from './dictionary';
+} from './item';
