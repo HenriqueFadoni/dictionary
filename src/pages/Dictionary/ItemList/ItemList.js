@@ -11,6 +11,7 @@ const ItemList = props => {
         id={item.id}
         domain={item.domain} 
         range={item.range} 
+        error={item.error}
       />
     )
   })

@@ -23,7 +23,7 @@ const Item = props => {
     return <Form editSave={editSave} editingToggle={editingToggle} />
   } else {
     return (
-      <div className="dictionary__item">
+      <div className={props.error ? "dictionary__item--error" : "dictionary__item"}>
         <div className="title">
           {props.domain}
         </div>
@@ -31,13 +31,25 @@ const Item = props => {
           {props.range}
         </div>
         <div>
-          <button className="small-button-square" onClick={editingToggle}>Edit</button>
-          <button className="small-button-square" onClick={() => props.deleteItem(props.id)}>Delete</button>
+          <button 
+            className="small-button-square" 
+            onClick={editingToggle}
+          >
+            Edit
+          </button>
+          <button 
+            className="small-button-square"
+            onClick={() => props.deleteItem(props.id)}
+          >
+            Delete
+          </button>
         </div>
+        {
+          props.error ? <div className="title">{props.error}</div> : null
+        }
       </div>
     );
   }
-
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -45,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
   editItem: (id, domain, range) => dispatch(actionTypes.editItem(id, domain, range))
 });
 
-export default connect(null, mapDispatchToProps)(Item);
+export default connect(mapDispatchToProps)(Item);
