@@ -16,6 +16,7 @@ const Item = props => {
       event.target.editDomain.value,
       event.target.editRange.value
     );
+    editingToggle();
   }
 
   if (isEditing) {
