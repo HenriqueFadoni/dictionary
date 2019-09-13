@@ -2,7 +2,9 @@ import checkValidity from './utilities/checkValidity';
 
 const editItem = (state, action) => {
   const itemList = state.selectedDictionary.items;
-  const newItemList = itemList.filter(d => d.id !== action.id)
+  const newItemList = itemList.filter(d => d.id !== action.id);
+  const newDictionaryList = state.dictionaryList.filter(d => state.selectedDictionary.id !== d.id);
+
 
   const newItem = { 
     domain: action.newDomain,
@@ -41,7 +43,7 @@ const editItem = (state, action) => {
   return {
     ...state,
     dictionaryList: [
-      ...state.dictionaryList,
+      ...newDictionaryList,
       newSelectedDictionary
     ],
     selectedDictionary: newSelectedDictionary

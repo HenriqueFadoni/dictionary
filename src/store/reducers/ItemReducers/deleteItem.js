@@ -7,10 +7,12 @@ const deleteItem = (state, action) => {
     items: newItemList
   }
 
+  const newDictionaryList = state.dictionaryList.filter(d => state.selectedDictionary.id !== d.id);
+  
   return {
     ...state,
     dictionaryList: [
-      ...state.dictionaryList,
+      ...newDictionaryList,
       updatedDictionary
     ],
     selectedDictionary: updatedDictionary
