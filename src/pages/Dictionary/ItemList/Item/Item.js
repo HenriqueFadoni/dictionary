@@ -22,16 +22,16 @@ const Item = props => {
     return <Form editSave={editSave} editingToggle={editingToggle} />
   } else {
     return (
-      <div>
-        <div>
+      <div className="dictionary__item">
+        <div className="title">
           {props.domain}
         </div>
-        <div>
+        <div className="title">
           {props.range}
         </div>
         <div>
-          <button onClick={editingToggle}>Edit</button>
-          <button onClick={() => props.deleteItem(props.id)}>Delete</button>
+          <button className="small-button-square" onClick={editingToggle}>Edit</button>
+          <button className="small-button-square" onClick={() => props.deleteItem(props.id)}>Delete</button>
         </div>
       </div>
     );

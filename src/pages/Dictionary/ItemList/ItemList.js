@@ -15,12 +15,7 @@ const ItemList = props => {
     )
   })
   return (
-    <div>
-      <div>
-        <div>Domain</div>
-        <div>Range</div>
-        <div>Actions</div>
-      </div>
+    <div className="dictionary__item-list">
       {entireList}
     </div>
   );

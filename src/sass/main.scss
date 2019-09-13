@@ -1,5 +1,6 @@
 // Variables
 @import "./abstract/variables";
+@import "./abstract/utility";
 
 // Base
 @import "./base/animations";
@@ -13,3 +14,4 @@
 
 // Pages
 @import "./pages/homepage";
+@import "./pages/dictionary";

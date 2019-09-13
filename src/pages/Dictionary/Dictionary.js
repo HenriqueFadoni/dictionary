@@ -23,10 +23,14 @@ const Dictionary = props => {
 
   if (selectedDictionary) {
     return (
-      <div>
-        <NavLink to="/">Home</NavLink>
-        <div>{selectedDictionary.name}</div>
-        <Form createDictItem={createDictItem} />
+      <div className="dictionary__container">
+        <div className="dictionary__header">
+          <NavLink className="link-style" to="/">Home</NavLink>
+        </div>
+        <div className="dictionary__form">
+          <div className="title">{selectedDictionary.name}</div>
+          <Form createDictItem={createDictItem} />
+        </div>
         <ItemList list={selectedDictionary.items} />
       </div>
     );
