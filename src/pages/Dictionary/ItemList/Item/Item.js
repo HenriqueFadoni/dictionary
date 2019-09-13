@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
   editItem: (id, domain, range) => dispatch(actionTypes.editItem(id, domain, range))
 });
 
-export default connect(mapDispatchToProps)(Item);
+export default connect(null, mapDispatchToProps)(Item);
