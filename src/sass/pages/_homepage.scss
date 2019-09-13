@@ -48,6 +48,9 @@
       align-items: center;
 
       background-color: $color-secondary;
+      overflow: hidden;
+
+      animation: appear 2s forwards;
     }
   }
 }

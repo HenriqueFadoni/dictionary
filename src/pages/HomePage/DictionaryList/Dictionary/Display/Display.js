@@ -4,7 +4,12 @@ import { NavLink } from 'react-router-dom';
 const Display = props => (
   <>
     <div>
-      <NavLink to={`/dictionary/${props.id}`}>{props.name}</NavLink>
+      <NavLink
+        className="link-style"
+        to={`/dictionary/${props.id}`}
+      >
+        {props.name}
+      </NavLink>
     </div>
     <div>
       <button type="button" onClick={props.editingToggle}>
