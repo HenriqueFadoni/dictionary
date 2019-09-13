@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 const Form = props => (
   <div className="homepage__form--container">
@@ -16,3 +17,7 @@ const Form = props => (
 );
 
 export default Form;
+
+Form.proptype = {
+  createDictionary: propTypes.func.isRequired
+}

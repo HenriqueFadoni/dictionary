@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import Dictionary from './Dictionary/Dictionary';
 
@@ -21,3 +22,7 @@ const DictionaryList = props => {
 };
 
 export default DictionaryList;
+
+DictionaryList.proptype = {
+  dictionaries: propTypes.array.isRequired
+}

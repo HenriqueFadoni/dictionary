@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/index';
+import propTypes from 'prop-types';
 
 import Form from './Form/Form';
 import DictionaryList from './DictionaryList/DictionaryList';
@@ -32,3 +33,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+HomePage.proptype = {
+  dictionaryList: propTypes.arrayOf(propTypes.object).isRequired,
+  createDictionary: propTypes.func.isRequired
+}

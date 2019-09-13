@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../../store/actions/index';
+import propTypes from 'prop-types';
 
 import Form from './Form/Form';
 import Display from './Display/Display';
@@ -50,3 +51,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(Dictionary);
+
+Dictionary.proptype = {
+  id: propTypes.number.isRequired,
+  name: propTypes.string.isRequired,
+  editDictionary: propTypes.func.isRequired,
+  deleteDictionary: propTypes.func.isRequired
+}
