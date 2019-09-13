@@ -1,9 +1,17 @@
+.edit-input,
 .input-square {
-  width: 35rem;
   padding: 1rem;
   color: $color-primary;
   
   border: none;
   outline: none;
   border-radius: 5rem;
+}
+
+.input-square {
+  width: 35rem;
+}
+
+.edit-input {
+  width: 25rem;
 }

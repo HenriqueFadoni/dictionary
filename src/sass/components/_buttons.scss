@@ -1,15 +1,12 @@
+.small-button-square,
 .button-square {
-  margin-left: 5rem;
-  padding: 1rem;
-
-  outline: none; 
-  border: .2rem solid $color-white;
-  border-radius: 2px;
-
   color: $color-white;
-
+  padding: 1rem;
+  outline: none;
+  border-radius: 2px;
+  border: 2px solid $color-white;
   background-color: transparent;
-  transition: transform .2s ease-in;
+  transition: transform 50ms ease-in;
 
   &:hover {
     transform: scale(1.1);
@@ -18,4 +15,13 @@
   &:active {
     transform: scale(1);
   }
+}
+
+.button-square {
+  font-size: 1.3rem;
+  margin-left: 5rem;
+}
+
+.small-button-square {
+  margin: 1rem;
 }

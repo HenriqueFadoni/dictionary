@@ -12,11 +12,16 @@ const Display = props => (
       </NavLink>
     </div>
     <div>
-      <button type="button" onClick={props.editingToggle}>
+      <button
+        type="button"
+        className="small-button-square"
+        onClick={props.editingToggle}
+      >
         Edit
       </button>
       <button
         type="button"
+        className="small-button-square"
         onClick={() => props.deleteDictionary(props.id)}
       >
         Delete
