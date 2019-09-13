@@ -5,6 +5,8 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import './sass/main.scss'
+
 import HomePage from './pages/HomePage/HomePage';
 import Dictionary from './pages/Dictionary/Dictionary';
 
