@@ -1,0 +1,21 @@
+.homepage {
+  &__container {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15rem 1fr;
+  }
+
+  &__form {
+    &--container {
+      height: 100%;
+      width: 100%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

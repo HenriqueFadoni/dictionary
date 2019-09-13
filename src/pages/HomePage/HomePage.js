@@ -16,7 +16,7 @@ const HomePage = props => {
   }
 
   return (
-    <div>
+    <div className="homepage__container">
       <Form createDictionary={createNewDictionary} />
       <DictionaryList dictionaries={props.dictionaryList} />
     </div>

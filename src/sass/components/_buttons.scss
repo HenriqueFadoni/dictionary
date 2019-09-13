@@ -1,0 +1,23 @@
+.button-square {
+  cursor: pointer;
+  margin-left: 2rem;
+  padding: 1rem;
+
+  outline: none; 
+  border: .2rem solid $color-white;
+  border-radius: 2px;
+
+  font-size: 1rem;
+  color: $color-white;
+
+  background-color: transparent;
+  transition: transform .2s ease-in;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}

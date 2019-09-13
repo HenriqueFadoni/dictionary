@@ -1,10 +1,16 @@
 import React from 'react';
 
 const Form = props => (
-  <div>
+  <div className="homepage__form--container">
     <form onSubmit={props.createDictionary}>
-      <input type="text" name="dictionaryName" required />
-      <button type="submit">Create Dictionary</button>
+      <input 
+        className="input-square" 
+        type="text" 
+        name="dictionaryName" 
+        placeholder="Add a Dictionary"
+        required 
+      />
+      <button className="button-square" type="submit">Create Dictionary</button>
     </form>
   </div>
 );
