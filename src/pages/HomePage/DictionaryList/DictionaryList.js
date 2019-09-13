@@ -14,7 +14,7 @@ const DictionaryList = props => {
   ));
 
   return (
-    <div>
+    <div className="homepage__list--container">
       {list}
     </div>
   );

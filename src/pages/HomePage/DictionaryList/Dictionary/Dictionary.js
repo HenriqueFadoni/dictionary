@@ -24,7 +24,7 @@ const Dictionary = props => {
 
   // Handling What to show to the User
   return (
-    <div>
+    <div className="homepage__list--item">
       {
         isEditing
           ?

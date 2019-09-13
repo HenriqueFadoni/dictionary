@@ -1,23 +1,53 @@
 .homepage {
   &__container {
-    height: 100vh;
+    min-height: 100vh;
+
+    height: auto;
     width: 100vw;
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 15rem 1fr;
+    grid-template-rows: 15rem auto;
   }
 
-  &__form {
+  &__form--container {
+    height: 100%;
+    width: 100%;
+
+    background-color: $color-secondary;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__list {
     &--container {
-      height: 100%;
-      width: 100%;
-      
-      background-color: rgb(85, 119, 212);
+      height: auto;
+      width: min-content;
+
+      padding: 3rem;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto-fill, 11rem);
+
+      justify-self: center;
+    }
+
+    &--item {
+      height: 5rem;
+      width: 50rem;
+
+      margin: 1rem;
+      padding: 2rem;
 
       display: flex;
-      justify-content: center;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
+
+      background-color: $color-secondary;
     }
   }
 }
